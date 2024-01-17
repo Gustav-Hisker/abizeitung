@@ -15,6 +15,13 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
+type Question struct {
+	Question string `json:"question"`
+	Best     string `json:"best"`
+	Worst    string `json:"worst"`
+}
+
+// loading functions
 func getTeachers() []string {
 	// Fetch HTML content
 	resp, err := http.Get("https://www.nepomucenum.de/wir-am-nepo/lehrende/")
@@ -44,21 +51,35 @@ func getTeachers() []string {
 	return ret
 }
 
-var teachers = getTeachers()
-
-func Teachers(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Fprint(w, strings.Join(teachers, ", "))
+func getQuestions() map[string]Question {
+	data := map[string]Question{}
+	fileContent, _ := os.ReadFile("questions.json")
+	json.Unmarshal(fileContent, &data)
+	return data
 }
 
-func getJson() map[string]map[string]int {
+func getResults() map[string]map[string]int {
 	data := map[string]map[string]int{}
 	fileContent, _ := os.ReadFile("results1.json")
 	json.Unmarshal(fileContent, &data)
 	return data
 }
 
-func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Fprint(w, "Welcome!\n")
+// declaring of "consts"
+var teachers = getTeachers()
+var questions = getQuestions()
+
+// response functions
+func Teachers(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	fmt.Fprint(w, "[\""+strings.Join(teachers, "\", \"")+"\"]")
+}
+
+func Questions(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	data, err := json.Marshal(questions)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Fprint(w, string(data))
 }
 
 func TeacherRatingUpload(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
@@ -66,8 +87,12 @@ func TeacherRatingUpload(w http.ResponseWriter, r *http.Request, ps httprouter.P
 	print(ps)
 }
 
+func NotImplemented(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	fmt.Fprint(w, "This page isn't implemented")
+}
+
 func main() {
-	results1 := getJson()
+	results1 := getResults()
 
 	for category, ratings := range results1 {
 		print(category + ":\t")
@@ -81,10 +106,12 @@ func main() {
 	getTeachers()
 
 	router := httprouter.New()
-	router.POST("/lehrerranking", TeacherRatingUpload)
-	router.GET("/lehrerranking/validate", Index)
-	router.GET("/lehrerranking/results", Index)
-	router.GET("/lehrerranking/lehrer", Teachers)
+	router.POST("/lehrer-ranking", TeacherRatingUpload)
+	router.GET("/lehrer-ranking/lehrer", Teachers)
+	router.GET("/lehrer-ranking/fragen", Questions)
+
+	router.GET("/lehrer-ranking/validate", NotImplemented)
+	router.GET("/lehrer-ranking/results", NotImplemented)
 
 	log.Fatal(http.ListenAndServe(":1337", router))
 }

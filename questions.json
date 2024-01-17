@@ -1,0 +1,12 @@
+{
+    "Lustig": {
+        "question": "Wer ist der lustigste / unlustigste Lehrer?",
+        "best": "Lustig",
+        "worst": "Unlustig"
+    },
+    "Spannender Unterricht": {
+        "question": "Wer macht den spannendsten / langweiligsten Unterricht?",
+        "best": "Spannend",
+        "worst": "Langweilig"
+    }
+}

@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 	"regexp"
+	"slices"
 	"strings"
 
 	"fmt"
@@ -23,9 +24,9 @@ type Question struct {
 }
 
 type RankedTeacher struct {
-	name  string `json:"name"`
-	rank  int    `json:"rank"`
-	score int    `json:"score"`
+	Name  string `json:"name"`
+	Rank  int    `json:"rank"`
+	Score int    `json:"score"`
 }
 
 // loading functions
@@ -80,7 +81,15 @@ func saveVoters() {
 	if err != nil {
 		panic(err)
 	}
-	os.WriteFile("./voter.json", data, 0644)
+	os.WriteFile("./voters.json", data, 0644)
+}
+
+func saveResults() {
+	data, err := json.MarshalIndent(results, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+	os.WriteFile("./results1.json", data, 0644)
 }
 
 // declaring variables
@@ -90,6 +99,28 @@ var questions = getQuestions()
 var results = getResults()
 var voters = getVoters()
 
+// helper functions
+func writeAsJson(w http.ResponseWriter, stuff any) {
+	data, err := json.Marshal(stuff)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Fprint(w, string(data))
+}
+
+func fillResults() {
+	for questionName := range questions {
+		if results[questionName] == nil {
+			results[questionName] = map[string]map[string]int{}
+		}
+		for _, teacher := range teachers {
+			if results[questionName][teacher] == nil {
+				results[questionName][teacher] = map[string]int{"b": 0, "w": 0}
+			}
+		}
+	}
+}
+
 // response functions
 
 func Teachers(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -97,11 +128,7 @@ func Teachers(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 }
 
 func Questions(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	data, err := json.Marshal(questions)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Fprint(w, string(data))
+	writeAsJson(w, questions)
 }
 
 func TeacherRatingUpload(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
@@ -111,23 +138,21 @@ func TeacherRatingUpload(w http.ResponseWriter, r *http.Request, ps httprouter.P
 		return
 	}
 
-	if r.PostFormValue("name") == "" {
+	name := r.PostFormValue("name")
+	if !voters[strings.ToLower(name)] {
 		w.WriteHeader(401)
 		return
 	}
 
-	for name := range questions {
-		println(name + "\tbest:" + r.PostFormValue(name+"-best") + "\tworst:" + r.PostFormValue(name+"-worst"))
-
+	for questionName := range questions {
+		best := r.PostFormValue(questionName + "-best")
+		worst := r.PostFormValue(questionName + "-worst")
+		println(questionName + "\tbest:" + best + "\tworst:" + worst)
 	}
 }
 
 func Results(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	data, err := json.Marshal(results)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Fprint(w, string(data))
+	writeAsJson(w, results)
 }
 
 func ResultsOfTeacher(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
@@ -140,11 +165,7 @@ func ResultsOfTeacher(w http.ResponseWriter, r *http.Request, ps httprouter.Para
 		}
 		res[category] = categoryResults[teacherName]
 	}
-	data, err := json.Marshal(res)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Fprint(w, string(data))
+	writeAsJson(w, res)
 }
 
 func Categories(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -152,35 +173,90 @@ func Categories(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	for category, categoryResult := range results {
 		for teacher, scores := range categoryResult {
 			res[category] = append(res[category], RankedTeacher{
-				name:  teacher,
-				rank:  -1,
-				score: scores["b"] - scores["w"],
+				Name:  teacher,
+				Rank:  -1,
+				Score: scores["b"] - scores["w"],
 			})
 		}
+		slices.SortFunc(res[category],
+			func(a, b RankedTeacher) int {
+				return b.Score - a.Score
+			},
+		)
+		for i := 0; i < len(res[category]); i++ {
+			if i > 0 && res[category][i].Score == res[category][i-1].Score {
+				res[category][i].Rank = res[category][i-1].Rank
+			} else {
+				res[category][i].Rank = i + 1
+			}
+		}
 	}
+	writeAsJson(w, res)
 }
 
 func Category(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	res := []RankedTeacher{}
 
+	category := ps.ByName("category")
+	if results[category] == nil {
+		w.WriteHeader(400)
+		return
+	}
+
+	for teacher, scores := range results[category] {
+		res = append(res, RankedTeacher{
+			Name:  teacher,
+			Rank:  -1,
+			Score: scores["b"] - scores["w"],
+		})
+	}
+	slices.SortFunc(res,
+		func(a, b RankedTeacher) int {
+			return b.Score - a.Score
+		},
+	)
+	for i := 0; i < len(res); i++ {
+		if i > 0 && res[i].Score == res[i-1].Score {
+			res[i].Rank = res[i-1].Rank
+		} else {
+			res[i].Rank = i + 1
+		}
+	}
+	writeAsJson(w, res)
+}
+
+func ValidateName(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	name := ps.ByName("name")
+	fmt.Fprint(w, voters[strings.ToLower(name)])
 }
 
 func NotImplemented(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, "This page isn't implemented")
 }
 
+func MiddleCORS(next httprouter.Handle) httprouter.Handle {
+	return func(w http.ResponseWriter,
+		r *http.Request, ps httprouter.Params) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		next(w, r, ps)
+	}
+}
+
 // main
 func main() {
+	fillResults()
+	saveResults()
+
 	router := httprouter.New()
-	router.POST("/lehrer-ranking", TeacherRatingUpload)
+	router.POST("/lehrer-ranking", MiddleCORS(TeacherRatingUpload))
 
-	router.GET("/lehrer-ranking/lehrer", Teachers)
-	router.GET("/lehrer-ranking/fragen", Questions)
-	router.GET("/lehrer-ranking/ergebnisse", Results)
-	router.GET("/lehrer-ranking/ergebnisse/l/:teacher", ResultsOfTeacher)
-	router.GET("/lehrer-ranking/ergebnisse/r", Categories)
-	router.GET("/lehrer-ranking/ergebnisse/r/:category", Category)
-
-	router.GET("/lehrer-ranking/validate-name", NotImplemented)
+	router.GET("/lehrer-ranking/lehrer", MiddleCORS(Teachers))
+	router.GET("/lehrer-ranking/fragen", MiddleCORS(Questions))
+	router.GET("/lehrer-ranking/ergebnisse", MiddleCORS(Results))
+	router.GET("/lehrer-ranking/ergebnisse/l/:teacher", MiddleCORS(ResultsOfTeacher))
+	router.GET("/lehrer-ranking/ergebnisse/k", MiddleCORS(Categories))
+	router.GET("/lehrer-ranking/ergebnisse/k/:category", MiddleCORS(Category))
+	router.GET("/lehrer-ranking/validate-name/:name", MiddleCORS(ValidateName))
 
 	log.Fatal(http.ListenAndServe(":1337", router))
 }

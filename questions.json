@@ -8,5 +8,15 @@
         "question": "Wer macht den spannendsten / langweiligsten Unterricht?",
         "best": "Spannend",
         "worst": "Langweilig"
+    },
+    "Style": {
+        "question": "Wer ist am modischsten / unmodischsten?",
+        "best": "Modisch",
+        "worst": "Unmodisch"
+    },
+    "Hausaufgaben": {
+        "question": "Wer gibt am wenigsten / meisten Hausaufgaben?",
+        "best": "Wenig",
+        "worst": "Viel"
     }
 }

@@ -1,4 +1,4 @@
 {
-    "lustig      " : {"AUF": 10, "BOS":-21, "JAG":10, "SCR":1},
-    "hausaufgaben" : {"AUF": 5, "BOS":-2, "JAG":-19, "SCR":16}
+    "lustig" : {"AUF": {"b":10,"w":1}, "BOS": {"b":0,"w":21}, "JAG": {"b":10,"w":1}, "SCR": {"b":5,"w":2}},
+    "hausaufgaben" : {"AUF": {"b":10,"w":10}, "BOS": {"b":20,"w":1}, "JAG": {"b":20,"w":0}, "SCR": {"b":0,"w":39}}
 }

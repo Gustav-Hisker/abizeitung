@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"os"
 	"regexp"
-	"strconv"
 	"strings"
 
 	"fmt"
@@ -15,35 +14,39 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
+// structs and classes
+
 type Question struct {
 	Question string `json:"question"`
 	Best     string `json:"best"`
 	Worst    string `json:"worst"`
 }
 
+type RankedTeacher struct {
+	name  string `json:"name"`
+	rank  int    `json:"rank"`
+	score int    `json:"score"`
+}
+
 // loading functions
+
 func getTeachers() []string {
-	// Fetch HTML content
 	resp, err := http.Get("https://www.nepomucenum.de/wir-am-nepo/lehrende/")
 	if err != nil {
 		panic(err)
 	}
 	defer resp.Body.Close()
 
-	// Read HTML content
 	html, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		panic(err)
 	}
 
-	// Define the regex pattern
 	pattern := `<h3[^>]\s*class\s*=\s*["']\s*team-member-name\s*["'][^>]*>(.*?)<\/h3>`
 	re := regexp.MustCompile(pattern)
 
-	// Find matches in HTML
 	matches := re.FindAllStringSubmatch(string(html), -1)
 
-	// Extract and print matched strings
 	ret := []string{}
 	for _, match := range matches {
 		ret = append(ret, match[1])
@@ -58,18 +61,37 @@ func getQuestions() map[string]Question {
 	return data
 }
 
-func getResults() map[string]map[string]int {
-	data := map[string]map[string]int{}
+func getResults() map[string]map[string]map[string]int {
+	data := map[string]map[string]map[string]int{}
 	fileContent, _ := os.ReadFile("results1.json")
 	json.Unmarshal(fileContent, &data)
 	return data
 }
 
-// declaring of "consts"
+func getVoters() map[string]bool {
+	data := map[string]bool{}
+	fileContent, _ := os.ReadFile("voters.json")
+	json.Unmarshal(fileContent, &data)
+	return data
+}
+
+func saveVoters() {
+	data, err := json.MarshalIndent(voters, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+	os.WriteFile("./voter.json", data, 0644)
+}
+
+// declaring variables
+
 var teachers = getTeachers()
 var questions = getQuestions()
+var results = getResults()
+var voters = getVoters()
 
 // response functions
+
 func Teachers(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, "[\""+strings.Join(teachers, "\", \"")+"\"]")
 }
@@ -83,35 +105,82 @@ func Questions(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 }
 
 func TeacherRatingUpload(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "hello, %s!\n", ps.ByName("name"))
-	print(ps)
+	err := r.ParseForm()
+	if err != nil {
+		w.WriteHeader(400)
+		return
+	}
+
+	if r.PostFormValue("name") == "" {
+		w.WriteHeader(401)
+		return
+	}
+
+	for name := range questions {
+		println(name + "\tbest:" + r.PostFormValue(name+"-best") + "\tworst:" + r.PostFormValue(name+"-worst"))
+
+	}
+}
+
+func Results(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	data, err := json.Marshal(results)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Fprint(w, string(data))
+}
+
+func ResultsOfTeacher(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	teacherName := ps.ByName("teacher")
+	res := map[string]map[string]int{}
+	for category, categoryResults := range results {
+		if categoryResults[teacherName] == nil {
+			w.WriteHeader(400)
+			return
+		}
+		res[category] = categoryResults[teacherName]
+	}
+	data, err := json.Marshal(res)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Fprint(w, string(data))
+}
+
+func Categories(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	res := map[string][]RankedTeacher{}
+	for category, categoryResult := range results {
+		for teacher, scores := range categoryResult {
+			res[category] = append(res[category], RankedTeacher{
+				name:  teacher,
+				rank:  -1,
+				score: scores["b"] - scores["w"],
+			})
+		}
+	}
+}
+
+func Category(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+
 }
 
 func NotImplemented(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, "This page isn't implemented")
 }
 
+// main
 func main() {
-	results1 := getResults()
-
-	for category, ratings := range results1 {
-		print(category + ":\t")
-		for _, t := range teachers {
-			print(strconv.Itoa(ratings[t]) + "\t")
-		}
-		println()
-	}
-	println()
-
-	getTeachers()
-
 	router := httprouter.New()
 	router.POST("/lehrer-ranking", TeacherRatingUpload)
+
 	router.GET("/lehrer-ranking/lehrer", Teachers)
 	router.GET("/lehrer-ranking/fragen", Questions)
+	router.GET("/lehrer-ranking/ergebnisse", Results)
+	router.GET("/lehrer-ranking/ergebnisse/l/:teacher", ResultsOfTeacher)
+	router.GET("/lehrer-ranking/ergebnisse/r", Categories)
+	router.GET("/lehrer-ranking/ergebnisse/r/:category", Category)
 
-	router.GET("/lehrer-ranking/validate", NotImplemented)
-	router.GET("/lehrer-ranking/results", NotImplemented)
+	router.GET("/lehrer-ranking/validate-name", NotImplemented)
 
 	log.Fatal(http.ListenAndServe(":1337", router))
 }

@@ -45,7 +45,7 @@
       "w": 0
     },
     "Christiane Dobbelhoff (DOB)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Christiane Zobel (ZOB)": {
@@ -114,7 +114,7 @@
     },
     "Karin Dünschede (DNS)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Katharina Siedenstein (SDS)": {
       "b": 0,
@@ -376,7 +376,7 @@
     },
     "Karin Dünschede (DNS)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Katharina Siedenstein (SDS)": {
       "b": 0,
@@ -459,7 +459,7 @@
       "w": 1
     },
     "Oliver Glaser (GLS)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Petra Pokrajac-Dersuniyeli (POD)": {
@@ -681,7 +681,7 @@
       "w": 0
     },
     "Martin Buss (BUS)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Martin Schäfer (SAR)": {
@@ -722,7 +722,7 @@
     },
     "Oliver Glaser (GLS)": {
       "b": 1,
-      "w": 0
+      "w": 1
     },
     "Petra Pokrajac-Dersuniyeli (POD)": {
       "b": 0,
@@ -851,7 +851,7 @@
       "w": 0
     },
     "Cäcilia Cesar (CES)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Dagmar Kowalski-Brummert (KOW)": {
@@ -896,7 +896,7 @@
     },
     "Jens Dütting (DUT)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Karin Dünschede (DNS)": {
       "b": 0,

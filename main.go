@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"io/ioutil"
+	"math/rand"
 	"os"
 	"regexp"
 	"slices"
@@ -121,6 +122,33 @@ func fillResults() {
 	}
 }
 
+func ReadUserIP(r *http.Request) string {
+	IPAddress := r.Header.Get("X-Real-Ip")
+	if IPAddress == "" {
+		IPAddress = r.Header.Get("X-Forwarded-For")
+	}
+	if IPAddress == "" {
+		IPAddress = r.RemoteAddr
+	}
+	return IPAddress
+}
+
+func genExampleRes() {
+	for i := 0; i < 80; i++ {
+		for questionName := range results {
+			keys := make([]string, 0, len(results[questionName]))
+			for k := range results[questionName] {
+				keys = append(keys, k)
+			}
+
+			bteacher := keys[rand.Intn(len(keys))]
+			wteacher := keys[rand.Intn(len(keys))]
+			results[questionName][bteacher]["b"] += 1
+			results[questionName][wteacher]["w"] += 1
+		}
+	}
+}
+
 // response functions
 
 func Teachers(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -132,6 +160,8 @@ func Questions(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 }
 
 func TeacherRatingUpload(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	println(ReadUserIP(r))
+
 	err := r.ParseForm()
 	if err != nil {
 		w.WriteHeader(400)
@@ -147,7 +177,6 @@ func TeacherRatingUpload(w http.ResponseWriter, r *http.Request, ps httprouter.P
 	for questionName := range questions {
 		best := r.PostFormValue(questionName + "-best")
 		worst := r.PostFormValue(questionName + "-worst")
-		println(questionName + "\tbest:" + best + "\tworst:" + worst)
 		if !(slices.Contains(teachers, best) && slices.Contains(teachers, worst)) {
 			w.WriteHeader(400)
 			return
@@ -193,10 +222,14 @@ func Categories(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			},
 		)
 		for i := 0; i < len(res[category]); i++ {
-			if i > 0 && res[category][i].Score == res[category][i-1].Score {
-				res[category][i].Rank = res[category][i-1].Rank
+			if i > 0 {
+				if res[category][i].Score == res[category][i-1].Score {
+					res[category][i].Rank = res[category][i-1].Rank
+				} else {
+					res[category][i].Rank = res[category][i-1].Rank + 1
+				}
 			} else {
-				res[category][i].Rank = i + 1
+				res[category][i].Rank = 1
 			}
 		}
 	}
@@ -225,10 +258,14 @@ func Category(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		},
 	)
 	for i := 0; i < len(res); i++ {
-		if i > 0 && res[i].Score == res[i-1].Score {
-			res[i].Rank = res[i-1].Rank
+		if i > 0 {
+			if res[i].Score == res[i-1].Score {
+				res[i].Rank = res[i-1].Rank
+			} else {
+				res[i].Rank = res[i-1].Rank + 1
+			}
 		} else {
-			res[i].Rank = i + 1
+			res[i].Rank = 1
 		}
 	}
 	writeAsJson(w, res)
@@ -246,6 +283,7 @@ func NotImplemented(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 func MiddleCORS(next httprouter.Handle) httprouter.Handle {
 	return func(w http.ResponseWriter,
 		r *http.Request, ps httprouter.Params) {
+
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		next(w, r, ps)
 	}
@@ -255,6 +293,7 @@ func MiddleCORS(next httprouter.Handle) httprouter.Handle {
 func main() {
 	fillResults()
 	saveResults()
+	genExampleRes()
 
 	router := httprouter.New()
 	router.POST("/lehrer-ranking", MiddleCORS(TeacherRatingUpload))

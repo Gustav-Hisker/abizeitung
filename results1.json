@@ -14,10 +14,10 @@
     },
     "Angela Bülo (BUL)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Anita Schürmann (SCR)": {
-      "b": 0,
+      "b": 1,
       "w": 1
     },
     "Anna-Maria Leuders (LEU)": {
@@ -37,7 +37,7 @@
       "w": 0
     },
     "Bianca Grzanowski": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Camilla Tendahl (TEN)": {
@@ -54,7 +54,7 @@
     },
     "Christin Frie (FRC)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Claudia Wieners (WIE)": {
       "b": 0,
@@ -65,7 +65,7 @@
       "w": 0
     },
     "Cäcilia Cesar (CES)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Dagmar Kowalski-Brummert (KOW)": {
@@ -78,7 +78,7 @@
     },
     "Dirk Calow (CAL)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Elisa Wenker (WEN)": {
       "b": 0,
@@ -114,7 +114,7 @@
     },
     "Karin Dünschede (DNS)": {
       "b": 0,
-      "w": 1
+      "w": 2
     },
     "Katharina Siedenstein (SDS)": {
       "b": 0,
@@ -193,7 +193,7 @@
       "w": 0
     },
     "Olaf Bösing (BOS)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Oliver Glaser (GLS)": {
@@ -267,7 +267,7 @@
       "w": 0
     },
     "Alexandra Diekhof (DIE)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Andreas Hemsen (HEM)": {
@@ -315,8 +315,8 @@
       "w": 0
     },
     "Christin Frie (FRC)": {
-      "b": 0,
-      "w": 0
+      "b": 1,
+      "w": 1
     },
     "Claudia Wieners (WIE)": {
       "b": 0,
@@ -328,7 +328,7 @@
     },
     "Cäcilia Cesar (CES)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Dagmar Kowalski-Brummert (KOW)": {
       "b": 0,
@@ -375,8 +375,8 @@
       "w": 0
     },
     "Karin Dünschede (DNS)": {
-      "b": 0,
-      "w": 1
+      "b": 1,
+      "w": 2
     },
     "Katharina Siedenstein (SDS)": {
       "b": 0,
@@ -419,8 +419,8 @@
       "w": 0
     },
     "Martin Buss (BUS)": {
-      "b": 0,
-      "w": 0
+      "b": 1,
+      "w": 1
     },
     "Martin Schäfer (SAR)": {
       "b": 0,
@@ -550,7 +550,7 @@
     },
     "Anne Gievert-Pieper": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Annelene Fichtner (FIT)": {
       "b": 0,
@@ -569,16 +569,16 @@
       "w": 0
     },
     "Christiane Dobbelhoff (DOB)": {
-      "b": 0,
-      "w": 0
+      "b": 1,
+      "w": 2
     },
     "Christiane Zobel (ZOB)": {
       "b": 0,
       "w": 0
     },
     "Christin Frie (FRC)": {
-      "b": 0,
-      "w": 0
+      "b": 1,
+      "w": 1
     },
     "Claudia Wieners (WIE)": {
       "b": 0,
@@ -681,7 +681,7 @@
       "w": 0
     },
     "Martin Buss (BUS)": {
-      "b": 1,
+      "b": 2,
       "w": 0
     },
     "Martin Schäfer (SAR)": {
@@ -705,7 +705,7 @@
       "w": 0
     },
     "Niels Baumert (BAU)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Nina Hamacher (HAM)": {
@@ -811,8 +811,8 @@
       "w": 0
     },
     "Anne Gievert-Pieper": {
-      "b": 0,
-      "w": 0
+      "b": 1,
+      "w": 1
     },
     "Annelene Fichtner (FIT)": {
       "b": 0,
@@ -840,7 +840,7 @@
     },
     "Christin Frie (FRC)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Claudia Wieners (WIE)": {
       "b": 0,
@@ -863,7 +863,7 @@
       "w": 0
     },
     "Dirk Calow (CAL)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Elisa Wenker (WEN)": {
@@ -928,7 +928,7 @@
     },
     "Marco Aufenanger (AUF)": {
       "b": 10,
-      "w": 9
+      "w": 10
     },
     "Marie Heusinger von Waldegge (HEU)": {
       "b": 0,
@@ -943,7 +943,7 @@
       "w": 0
     },
     "Martin Buss (BUS)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Martin Schäfer (SAR)": {
@@ -1003,8 +1003,8 @@
       "w": 0
     },
     "Robert Burrichter (BUR)": {
-      "b": 0,
-      "w": 0
+      "b": 1,
+      "w": 1
     },
     "Robin Westhues (WST)": {
       "b": 0,

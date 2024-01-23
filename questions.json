@@ -23,5 +23,10 @@
         "question": "Wer kommt am besten / schlechtesten mit der Technick klar?",
         "best": "Gut",
         "worst": "Schlecht"
+    },
+    "Pünktlichkeit": {
+        "question": "Wer kommt am pünktlichsten / unpünktlichsten?",
+        "best": "pünktlich",
+        "worst": "unpünktlich"
     }
 }

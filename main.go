@@ -148,7 +148,16 @@ func TeacherRatingUpload(w http.ResponseWriter, r *http.Request, ps httprouter.P
 		best := r.PostFormValue(questionName + "-best")
 		worst := r.PostFormValue(questionName + "-worst")
 		println(questionName + "\tbest:" + best + "\tworst:" + worst)
+		if !(slices.Contains(teachers, best) && slices.Contains(teachers, worst)) {
+			w.WriteHeader(400)
+			return
+		}
+		results[questionName][best]["b"] += 1
+		results[questionName][worst]["w"] += 1
 	}
+	voters[strings.ToLower(name)] = false
+	saveVoters()
+	saveResults()
 }
 
 func Results(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -258,5 +267,6 @@ func main() {
 	router.GET("/lehrer-ranking/ergebnisse/k/:category", MiddleCORS(Category))
 	router.GET("/lehrer-ranking/validate-name/:name", MiddleCORS(ValidateName))
 
+	println("Started Server")
 	log.Fatal(http.ListenAndServe(":1337", router))
 }

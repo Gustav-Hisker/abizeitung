@@ -5,7 +5,7 @@
       "w": 0
     },
     "Alexandra Diekhof (DIE)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Andreas Hemsen (HEM)": {
@@ -18,7 +18,7 @@
     },
     "Anita Schürmann (SCR)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Anna-Maria Leuders (LEU)": {
       "b": 0,
@@ -141,8 +141,8 @@
       "w": 0
     },
     "Marco Aufenanger (AUF)": {
-      "b": 0,
-      "w": 0
+      "b": 12,
+      "w": 3
     },
     "Marie Heusinger von Waldegge (HEU)": {
       "b": 0,
@@ -169,7 +169,7 @@
       "w": 0
     },
     "Melanie Jankord-Gauselmann (JAG)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Michael Weiermann (WEI)": {
@@ -218,7 +218,7 @@
     },
     "Robert Burrichter (BUR)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Robin Westhues (WST)": {
       "b": 0,
@@ -287,8 +287,8 @@
       "w": 0
     },
     "Anne Gievert-Pieper": {
-      "b": 0,
-      "w": 0
+      "b": 1,
+      "w": 1
     },
     "Annelene Fichtner (FIT)": {
       "b": 0,
@@ -403,8 +403,8 @@
       "w": 0
     },
     "Marco Aufenanger (AUF)": {
-      "b": 0,
-      "w": 0
+      "b": 8,
+      "w": 12
     },
     "Marie Heusinger von Waldegge (HEU)": {
       "b": 0,
@@ -456,7 +456,7 @@
     },
     "Olaf Bösing (BOS)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Oliver Glaser (GLS)": {
       "b": 0,
@@ -554,7 +554,7 @@
     },
     "Annelene Fichtner (FIT)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Astrid Steens (STE)": {
       "b": 0,
@@ -665,8 +665,8 @@
       "w": 0
     },
     "Marco Aufenanger (AUF)": {
-      "b": 0,
-      "w": 0
+      "b": 15,
+      "w": 1
     },
     "Marie Heusinger von Waldegge (HEU)": {
       "b": 0,
@@ -721,7 +721,7 @@
       "w": 0
     },
     "Oliver Glaser (GLS)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Petra Pokrajac-Dersuniyeli (POD)": {
@@ -741,8 +741,8 @@
       "w": 0
     },
     "Robert Burrichter (BUR)": {
-      "b": 0,
-      "w": 0
+      "b": 1,
+      "w": 1
     },
     "Robin Westhues (WST)": {
       "b": 0,
@@ -792,7 +792,7 @@
     },
     "Alexandra Diekhof (DIE)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Andreas Hemsen (HEM)": {
       "b": 0,
@@ -816,7 +816,7 @@
     },
     "Annelene Fichtner (FIT)": {
       "b": 0,
-      "w": 0
+      "w": 1
     },
     "Astrid Steens (STE)": {
       "b": 0,
@@ -927,8 +927,8 @@
       "w": 0
     },
     "Marco Aufenanger (AUF)": {
-      "b": 0,
-      "w": 0
+      "b": 10,
+      "w": 9
     },
     "Marie Heusinger von Waldegge (HEU)": {
       "b": 0,
@@ -959,7 +959,7 @@
       "w": 0
     },
     "Michael Weiermann (WEI)": {
-      "b": 0,
+      "b": 1,
       "w": 0
     },
     "Nicole Piela (PIE)": {

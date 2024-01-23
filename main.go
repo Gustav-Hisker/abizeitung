@@ -293,7 +293,6 @@ func MiddleCORS(next httprouter.Handle) httprouter.Handle {
 func main() {
 	fillResults()
 	saveResults()
-	genExampleRes()
 
 	router := httprouter.New()
 	router.POST("/lehrer-ranking", MiddleCORS(TeacherRatingUpload))

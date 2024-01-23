@@ -18,5 +18,10 @@
         "question": "Wer gibt am wenigsten / meisten Hausaufgaben?",
         "best": "Wenig",
         "worst": "Viel"
+    },
+    "Technikverständniss": {
+        "question": "Wer kommt am besten / schlechtesten mit der Technick klar?",
+        "best": "Gut",
+        "worst": "Schlecht"
     }
 }

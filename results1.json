@@ -5,7 +5,7 @@
       "w": 0
     },
     "Alexandra Diekhof (DIE)": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Andreas Hemsen (HEM)": {
@@ -14,11 +14,11 @@
     },
     "Angela Bülo (BUL)": {
       "b": 0,
-      "w": 1
+      "w": 0
     },
     "Anita Schürmann (SCR)": {
-      "b": 1,
-      "w": 1
+      "b": 0,
+      "w": 0
     },
     "Anna-Maria Leuders (LEU)": {
       "b": 0,
@@ -37,7 +37,7 @@
       "w": 0
     },
     "Bianca Grzanowski": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Camilla Tendahl (TEN)": {
@@ -45,7 +45,7 @@
       "w": 0
     },
     "Christiane Dobbelhoff (DOB)": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Christiane Zobel (ZOB)": {
@@ -54,7 +54,7 @@
     },
     "Christin Frie (FRC)": {
       "b": 0,
-      "w": 1
+      "w": 0
     },
     "Claudia Wieners (WIE)": {
       "b": 0,
@@ -65,7 +65,7 @@
       "w": 0
     },
     "Cäcilia Cesar (CES)": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Dagmar Kowalski-Brummert (KOW)": {
@@ -78,7 +78,7 @@
     },
     "Dirk Calow (CAL)": {
       "b": 0,
-      "w": 1
+      "w": 0
     },
     "Elisa Wenker (WEN)": {
       "b": 0,
@@ -114,7 +114,7 @@
     },
     "Karin Dünschede (DNS)": {
       "b": 0,
-      "w": 2
+      "w": 0
     },
     "Katharina Siedenstein (SDS)": {
       "b": 0,
@@ -141,8 +141,8 @@
       "w": 0
     },
     "Marco Aufenanger (AUF)": {
-      "b": 12,
-      "w": 3
+      "b": 0,
+      "w": 0
     },
     "Marie Heusinger von Waldegge (HEU)": {
       "b": 0,
@@ -169,7 +169,7 @@
       "w": 0
     },
     "Melanie Jankord-Gauselmann (JAG)": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Michael Weiermann (WEI)": {
@@ -193,7 +193,7 @@
       "w": 0
     },
     "Olaf Bösing (BOS)": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Oliver Glaser (GLS)": {
@@ -218,7 +218,7 @@
     },
     "Robert Burrichter (BUR)": {
       "b": 0,
-      "w": 1
+      "w": 0
     },
     "Robin Westhues (WST)": {
       "b": 0,
@@ -267,7 +267,7 @@
       "w": 0
     },
     "Alexandra Diekhof (DIE)": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Andreas Hemsen (HEM)": {
@@ -287,8 +287,8 @@
       "w": 0
     },
     "Anne Gievert-Pieper": {
-      "b": 1,
-      "w": 1
+      "b": 0,
+      "w": 0
     },
     "Annelene Fichtner (FIT)": {
       "b": 0,
@@ -315,8 +315,8 @@
       "w": 0
     },
     "Christin Frie (FRC)": {
-      "b": 1,
-      "w": 1
+      "b": 0,
+      "w": 0
     },
     "Claudia Wieners (WIE)": {
       "b": 0,
@@ -328,7 +328,7 @@
     },
     "Cäcilia Cesar (CES)": {
       "b": 0,
-      "w": 1
+      "w": 0
     },
     "Dagmar Kowalski-Brummert (KOW)": {
       "b": 0,
@@ -375,8 +375,8 @@
       "w": 0
     },
     "Karin Dünschede (DNS)": {
-      "b": 1,
-      "w": 2
+      "b": 0,
+      "w": 0
     },
     "Katharina Siedenstein (SDS)": {
       "b": 0,
@@ -403,8 +403,8 @@
       "w": 0
     },
     "Marco Aufenanger (AUF)": {
-      "b": 8,
-      "w": 12
+      "b": 0,
+      "w": 0
     },
     "Marie Heusinger von Waldegge (HEU)": {
       "b": 0,
@@ -419,8 +419,8 @@
       "w": 0
     },
     "Martin Buss (BUS)": {
-      "b": 1,
-      "w": 1
+      "b": 0,
+      "w": 0
     },
     "Martin Schäfer (SAR)": {
       "b": 0,
@@ -456,10 +456,10 @@
     },
     "Olaf Bösing (BOS)": {
       "b": 0,
-      "w": 1
+      "w": 0
     },
     "Oliver Glaser (GLS)": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Petra Pokrajac-Dersuniyeli (POD)": {
@@ -550,11 +550,11 @@
     },
     "Anne Gievert-Pieper": {
       "b": 0,
-      "w": 1
+      "w": 0
     },
     "Annelene Fichtner (FIT)": {
       "b": 0,
-      "w": 1
+      "w": 0
     },
     "Astrid Steens (STE)": {
       "b": 0,
@@ -569,16 +569,16 @@
       "w": 0
     },
     "Christiane Dobbelhoff (DOB)": {
-      "b": 1,
-      "w": 2
+      "b": 0,
+      "w": 0
     },
     "Christiane Zobel (ZOB)": {
       "b": 0,
       "w": 0
     },
     "Christin Frie (FRC)": {
-      "b": 1,
-      "w": 1
+      "b": 0,
+      "w": 0
     },
     "Claudia Wieners (WIE)": {
       "b": 0,
@@ -665,8 +665,8 @@
       "w": 0
     },
     "Marco Aufenanger (AUF)": {
-      "b": 15,
-      "w": 1
+      "b": 0,
+      "w": 0
     },
     "Marie Heusinger von Waldegge (HEU)": {
       "b": 0,
@@ -681,7 +681,7 @@
       "w": 0
     },
     "Martin Buss (BUS)": {
-      "b": 2,
+      "b": 0,
       "w": 0
     },
     "Martin Schäfer (SAR)": {
@@ -705,7 +705,7 @@
       "w": 0
     },
     "Niels Baumert (BAU)": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Nina Hamacher (HAM)": {
@@ -721,8 +721,8 @@
       "w": 0
     },
     "Oliver Glaser (GLS)": {
-      "b": 1,
-      "w": 1
+      "b": 0,
+      "w": 0
     },
     "Petra Pokrajac-Dersuniyeli (POD)": {
       "b": 0,
@@ -741,8 +741,8 @@
       "w": 0
     },
     "Robert Burrichter (BUR)": {
-      "b": 1,
-      "w": 1
+      "b": 0,
+      "w": 0
     },
     "Robin Westhues (WST)": {
       "b": 0,
@@ -792,7 +792,7 @@
     },
     "Alexandra Diekhof (DIE)": {
       "b": 0,
-      "w": 1
+      "w": 0
     },
     "Andreas Hemsen (HEM)": {
       "b": 0,
@@ -811,12 +811,12 @@
       "w": 0
     },
     "Anne Gievert-Pieper": {
-      "b": 1,
-      "w": 1
+      "b": 0,
+      "w": 0
     },
     "Annelene Fichtner (FIT)": {
       "b": 0,
-      "w": 1
+      "w": 0
     },
     "Astrid Steens (STE)": {
       "b": 0,
@@ -840,7 +840,7 @@
     },
     "Christin Frie (FRC)": {
       "b": 0,
-      "w": 1
+      "w": 0
     },
     "Claudia Wieners (WIE)": {
       "b": 0,
@@ -851,7 +851,7 @@
       "w": 0
     },
     "Cäcilia Cesar (CES)": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Dagmar Kowalski-Brummert (KOW)": {
@@ -863,7 +863,7 @@
       "w": 0
     },
     "Dirk Calow (CAL)": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Elisa Wenker (WEN)": {
@@ -896,7 +896,7 @@
     },
     "Jens Dütting (DUT)": {
       "b": 0,
-      "w": 1
+      "w": 0
     },
     "Karin Dünschede (DNS)": {
       "b": 0,
@@ -927,8 +927,8 @@
       "w": 0
     },
     "Marco Aufenanger (AUF)": {
-      "b": 10,
-      "w": 10
+      "b": 0,
+      "w": 0
     },
     "Marie Heusinger von Waldegge (HEU)": {
       "b": 0,
@@ -943,7 +943,7 @@
       "w": 0
     },
     "Martin Buss (BUS)": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Martin Schäfer (SAR)": {
@@ -959,7 +959,7 @@
       "w": 0
     },
     "Michael Weiermann (WEI)": {
-      "b": 1,
+      "b": 0,
       "w": 0
     },
     "Nicole Piela (PIE)": {
@@ -1003,8 +1003,270 @@
       "w": 0
     },
     "Robert Burrichter (BUR)": {
-      "b": 1,
-      "w": 1
+      "b": 0,
+      "w": 0
+    },
+    "Robin Westhues (WST)": {
+      "b": 0,
+      "w": 0
+    },
+    "Sabine Riemer (RIR)": {
+      "b": 0,
+      "w": 0
+    },
+    "Sibylle Schütz (STZ)": {
+      "b": 0,
+      "w": 0
+    },
+    "Stefan Kreutzfeldt (KRF)": {
+      "b": 0,
+      "w": 0
+    },
+    "Tatjana Korte (KOR)": {
+      "b": 0,
+      "w": 0
+    },
+    "Thomas Horneber (HOR)": {
+      "b": 0,
+      "w": 0
+    },
+    "Tina Klinge (KLG)": {
+      "b": 0,
+      "w": 0
+    },
+    "Ursula Metelmann (MET)": {
+      "b": 0,
+      "w": 0
+    },
+    "Verena Stock (STO)": {
+      "b": 0,
+      "w": 0
+    },
+    "Volker Schmidt (SDT)": {
+      "b": 0,
+      "w": 0
+    }
+  },
+  "Technikverständniss": {
+    "Achim Willenbring (WIL)": {
+      "b": 0,
+      "w": 0
+    },
+    "Alexandra Diekhof (DIE)": {
+      "b": 0,
+      "w": 0
+    },
+    "Andreas Hemsen (HEM)": {
+      "b": 0,
+      "w": 0
+    },
+    "Angela Bülo (BUL)": {
+      "b": 0,
+      "w": 0
+    },
+    "Anita Schürmann (SCR)": {
+      "b": 0,
+      "w": 0
+    },
+    "Anna-Maria Leuders (LEU)": {
+      "b": 0,
+      "w": 0
+    },
+    "Anne Gievert-Pieper": {
+      "b": 0,
+      "w": 0
+    },
+    "Annelene Fichtner (FIT)": {
+      "b": 0,
+      "w": 0
+    },
+    "Astrid Steens (STE)": {
+      "b": 0,
+      "w": 0
+    },
+    "Bianca Grzanowski": {
+      "b": 0,
+      "w": 0
+    },
+    "Camilla Tendahl (TEN)": {
+      "b": 0,
+      "w": 0
+    },
+    "Christiane Dobbelhoff (DOB)": {
+      "b": 0,
+      "w": 0
+    },
+    "Christiane Zobel (ZOB)": {
+      "b": 0,
+      "w": 0
+    },
+    "Christin Frie (FRC)": {
+      "b": 0,
+      "w": 0
+    },
+    "Claudia Wieners (WIE)": {
+      "b": 0,
+      "w": 0
+    },
+    "Cornelia Reiker (REK)": {
+      "b": 0,
+      "w": 0
+    },
+    "Cäcilia Cesar (CES)": {
+      "b": 0,
+      "w": 0
+    },
+    "Dagmar Kowalski-Brummert (KOW)": {
+      "b": 0,
+      "w": 0
+    },
+    "Daniela Meyer (MEY)": {
+      "b": 0,
+      "w": 0
+    },
+    "Dirk Calow (CAL)": {
+      "b": 0,
+      "w": 0
+    },
+    "Elisa Wenker (WEN)": {
+      "b": 0,
+      "w": 0
+    },
+    "Enid Leppmann (LEP)": {
+      "b": 0,
+      "w": 0
+    },
+    "Fabian Hardenberg (HAR)": {
+      "b": 0,
+      "w": 0
+    },
+    "Harald Pohlschmidt (POL)": {
+      "b": 0,
+      "w": 0
+    },
+    "Hermann Koop (KOO)": {
+      "b": 0,
+      "w": 0
+    },
+    "Jan Stauvermann (STV)": {
+      "b": 0,
+      "w": 0
+    },
+    "Jens Brumma (BRU)": {
+      "b": 0,
+      "w": 0
+    },
+    "Jens Dütting (DUT)": {
+      "b": 0,
+      "w": 0
+    },
+    "Karin Dünschede (DNS)": {
+      "b": 0,
+      "w": 0
+    },
+    "Katharina Siedenstein (SDS)": {
+      "b": 0,
+      "w": 0
+    },
+    "Katharine Plümer-Krabbe (PÜK)": {
+      "b": 0,
+      "w": 0
+    },
+    "Katrin Terlaack  (TER)": {
+      "b": 0,
+      "w": 0
+    },
+    "Kristina Sicking (SIC)": {
+      "b": 0,
+      "w": 0
+    },
+    "Lars Rinke (RIN)": {
+      "b": 0,
+      "w": 0
+    },
+    "Lukas Hilkenbach (HIL)": {
+      "b": 0,
+      "w": 0
+    },
+    "Marco Aufenanger (AUF)": {
+      "b": 0,
+      "w": 0
+    },
+    "Marie Heusinger von Waldegge (HEU)": {
+      "b": 0,
+      "w": 0
+    },
+    "Markus Reineke (REI)": {
+      "b": 0,
+      "w": 0
+    },
+    "Markus Spier (SPI)": {
+      "b": 0,
+      "w": 0
+    },
+    "Martin Buss (BUS)": {
+      "b": 0,
+      "w": 0
+    },
+    "Martin Schäfer (SAR)": {
+      "b": 0,
+      "w": 0
+    },
+    "Mechthild Namyslo (NAM)": {
+      "b": 0,
+      "w": 0
+    },
+    "Melanie Jankord-Gauselmann (JAG)": {
+      "b": 0,
+      "w": 0
+    },
+    "Michael Weiermann (WEI)": {
+      "b": 0,
+      "w": 0
+    },
+    "Nicole Piela (PIE)": {
+      "b": 0,
+      "w": 0
+    },
+    "Niels Baumert (BAU)": {
+      "b": 0,
+      "w": 0
+    },
+    "Nina Hamacher (HAM)": {
+      "b": 0,
+      "w": 0
+    },
+    "Océane Potthoff (PTH)": {
+      "b": 0,
+      "w": 0
+    },
+    "Olaf Bösing (BOS)": {
+      "b": 0,
+      "w": 0
+    },
+    "Oliver Glaser (GLS)": {
+      "b": 0,
+      "w": 0
+    },
+    "Petra Pokrajac-Dersuniyeli (POD)": {
+      "b": 0,
+      "w": 0
+    },
+    "Philipp Mussinghoff (MSH)": {
+      "b": 0,
+      "w": 0
+    },
+    "Ralf Hötker (HTK)": {
+      "b": 0,
+      "w": 0
+    },
+    "Reinhard Puder (PUD)": {
+      "b": 0,
+      "w": 0
+    },
+    "Robert Burrichter (BUR)": {
+      "b": 0,
+      "w": 0
     },
     "Robin Westhues (WST)": {
       "b": 0,
